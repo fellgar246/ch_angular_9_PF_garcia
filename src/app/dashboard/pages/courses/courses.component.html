@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div>
+    <h1 appTitles>Cursos</h1>
+    <p> Los siguientes son los cursos actuales </p>
+  </div>
+
+  <div class="sub-container">
+    <div class="button-container">
+      <button (click)="onCreateCourse()" mat-flat-button color="primary" type="button">
+        <mat-icon>add</mat-icon>
+        Agregar Curso
+      </button>
+    </div>
+
+    <div *ngIf="isLoading$ | async; else notLoadingTemplate">Está cargando</div>
+
+    <ng-template #notLoadingTemplate>
+      <app-courses-table
+      class="table"
+      [dataSource]="(courses | async) || []"
+      (deleteCourse)="onDeleteCourse($event)"
+      (editCourse)="onEditCourse($event)">
+    </app-courses-table>
+    </ng-template>
+  </div>
+
+</div>
