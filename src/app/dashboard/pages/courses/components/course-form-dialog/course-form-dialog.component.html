@@ -22,7 +22,7 @@
           <mat-option value="Backend">Backend</mat-option>
           <mat-option value="Bases de datos">Bases de Datos</mat-option>
         </mat-select>
-        <mat-error *ngFor="let error of typeCourseControl.errors | keyvalue">
+        <mat-error *ngFor="let error of categoryControl.errors | keyvalue">
           {{ error | controlErrorMessage }}
         </mat-error>
       </mat-form-field>

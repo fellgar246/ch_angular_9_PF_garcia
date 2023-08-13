@@ -38,6 +38,10 @@ export class CourseService {
     return this._course$
   }
 
+  getCoursesByCategory(categoryId: number): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(environment.baseApiUrl + `/courses?category=${categoryId}`)
+  }
+
   createCourse(course: CreateCourseData): void {
     this.httpClient.post<Course>(environment.baseApiUrl + '/courses', {...course })
       .pipe(

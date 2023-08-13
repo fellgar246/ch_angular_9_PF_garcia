@@ -18,6 +18,9 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Accciones </th>
     <td mat-cell *matCellDef="let category">
+      <button  [routerLink]="category.id" mat-icon-button color="primary">
+        <mat-icon>visibility</mat-icon>
+      </button>
       <button (click)="editCategory.emit(category)" mat-icon-button color="primary">
         <mat-icon>edit</mat-icon>
       </button>

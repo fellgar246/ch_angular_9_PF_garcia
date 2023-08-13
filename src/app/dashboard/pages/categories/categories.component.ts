@@ -5,6 +5,9 @@ import { Category } from './models';
 import { CategoryService } from './category.service';
 import { Observable } from 'rxjs';
 import { NotifierService } from '../../../core/services/notifier.service';
+import { Store } from '@ngrx/store';
+import { CategoriesActions } from './store/categories.actions';
+import { selectCategoriesArray } from './store/categories.selectors';
 
 @Component({
   selector: 'app-categories',
@@ -14,15 +17,22 @@ import { NotifierService } from '../../../core/services/notifier.service';
 export class CategoriesComponent {
   public categories: Observable<Category[]>;
   public isLoading$: Observable<boolean>;
+  categories$: Observable<Category[]>
 
   constructor(
     private matDialog: MatDialog,
     private categoryService: CategoryService,
     private notifier: NotifierService,
+    private store: Store
     ) {
     this.categoryService.loadCategories();
     this.isLoading$ = this.categoryService.isLoading$;
     this.categories = this.categoryService.getCategories();
+    this.categories$ = this.store.select(selectCategoriesArray)
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(CategoriesActions.loadCategories());
   }
 
   onCreateCategory(): void{
