@@ -13,9 +13,13 @@ export class CoursesTableComponent {
   @Input()
   dataSource: Course[] = [];
 
+  @Input()
+  isAdmin: boolean = false;
+
   @Output()
   deleteCourse = new EventEmitter<Course>();
 
   @Output()
   editCourse = new EventEmitter<Course>();
+
 }

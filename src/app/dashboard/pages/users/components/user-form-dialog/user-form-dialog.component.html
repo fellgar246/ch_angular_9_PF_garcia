@@ -47,6 +47,13 @@
           {{ error | controlErrorMessage }}
         </mat-error>
       </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="administrador">Administrador</mat-option>
+          <mat-option value="usuario">Usuario</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </form>
 </div>

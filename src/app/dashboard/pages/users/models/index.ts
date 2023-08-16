@@ -7,6 +7,7 @@ export interface User {
   course: String;
   password: string;
   token: string;
+  role: string;
 }
 
 export interface CreateUserData {
@@ -25,4 +26,5 @@ export interface UpdateUserData {
   email?: string;
   course?: String;
   password?: string;
+  role?: string;
 }

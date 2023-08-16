@@ -11,6 +11,8 @@ import { AuthService } from '../../auth.service';
 export class LoginComponent {
   public emailControl = new FormControl('prueba@mail.com', [Validators.required, Validators.email]);
   public passwordControl = new FormControl('1234', [Validators.required]);
+  // public emailControl = new FormControl(null, [Validators.required, Validators.email]);
+  // public passwordControl = new FormControl(null,[Validators.required]);
 
   public loginForm = new FormGroup({
     email: this.emailControl,

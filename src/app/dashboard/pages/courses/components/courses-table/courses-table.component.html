@@ -24,7 +24,7 @@
       <button (click)="editCourse.emit(course)" mat-icon-button color="primary">
         <mat-icon>edit</mat-icon>
       </button>
-      <button (click)="deleteCourse.emit(course)" mat-icon-button color="warn">
+      <button [disabled]="isAdmin" (click)="deleteCourse.emit(course)" mat-icon-button color="warn">
         <mat-icon>delete</mat-icon>
       </button>
     </td>

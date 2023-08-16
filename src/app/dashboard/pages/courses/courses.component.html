@@ -19,6 +19,7 @@
       <app-courses-table
       class="table"
       [dataSource]="(courses | async) || []"
+      [isAdmin]="!(isAdmin$ | async)"
       (deleteCourse)="onDeleteCourse($event)"
       (editCourse)="onEditCourse($event)">
     </app-courses-table>

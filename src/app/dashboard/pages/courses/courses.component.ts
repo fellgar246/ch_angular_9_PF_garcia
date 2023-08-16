@@ -5,6 +5,8 @@ import { Course } from './models';
 import { CourseService } from './course.service';
 import { NotifierService } from '../../../core/services/notifier.service';
 import { Observable, map } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-courses',
@@ -14,15 +16,18 @@ import { Observable, map } from 'rxjs';
 export class CoursesComponent {
   public courses: Observable<Course[]>;
   public isLoading$: Observable<boolean>;
+  public isAdmin$: Observable<boolean>;
 
   constructor(
     private matDialog: MatDialog,
     private courseService: CourseService,
     private notifier: NotifierService,
+    private store: Store
     ) {
       this.courseService.loadCourses();
       this.isLoading$ = this.courseService.isLoading$;
-      this.courses = this.courseService.getCourses()
+      this.courses = this.courseService.getCourses();
+      this.isAdmin$ = this.store.select(selectIsAdmin);
     }
 
   onCreateCourse(): void {
