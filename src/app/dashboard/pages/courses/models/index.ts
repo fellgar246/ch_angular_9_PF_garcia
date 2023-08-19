@@ -1,15 +1,15 @@
 export interface Course {
-  id: Number;
-  nameCourse: String;
+  id: number;
+  nameCourse: string;
   category: number;
 }
 
 export interface CreateCourseData {
-  nameCourse: String;
+  nameCourse: string;
   category: number;
 }
 
 export interface UpdateCourseData {
-  nameCourse: String;
+  nameCourse: string;
   category: number;
 }

@@ -16,6 +16,10 @@ import { adminGuard } from "../core/guards/admin.guard";
         loadChildren: () => import('./pages/users/users.module').then((module) => module.UsersModule)
       },
       {
+        path: 'enroll',
+        loadChildren: () => import('./pages/enroll/enroll.module').then((module) => module.EnrollModule)
+      },
+      {
         path: 'courses',
         loadChildren: () => import('./pages/courses/courses.module').then((module) => module.CoursesModule)
       },

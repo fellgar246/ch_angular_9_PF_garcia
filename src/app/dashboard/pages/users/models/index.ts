@@ -1,7 +1,7 @@
 export interface User {
-  id: Number;
-  name: String;
-  lastName: String;
+  id: number;
+  name: string;
+  lastName: string;
   age: Number;
   email: string;
   course: String;
@@ -11,8 +11,8 @@ export interface User {
 }
 
 export interface CreateUserData {
-  name: String;
-  lastName: String;
+  name: string;
+  lastName: string;
   age: Number;
   email: string;
   course: String;
@@ -20,8 +20,8 @@ export interface CreateUserData {
 }
 
 export interface UpdateUserData {
-  name?: String;
-  lastName?: String;
+  name?: string;
+  lastName?: string;
   age?: Number;
   email?: string;
   course?: String;

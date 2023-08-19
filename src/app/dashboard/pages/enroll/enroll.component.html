@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div>
+    <h1 appTitles>Inscripciones</h1>
+    <p> Los siguientes son las inscripciones actuales </p>
+  </div>
+
+  <div class="sub-container">
+    <div class="button-container">
+      <button (click)="onCreateEnrollment()" mat-flat-button color="primary" type="button">
+        <mat-icon>add</mat-icon>
+        Agregar Inscripción
+      </button>
+    </div>
+
+    <div *ngIf="isLoading$ | async; else notLoadingTemplate">Está cargando</div>
+
+    <ng-template #notLoadingTemplate>
+      <app-enroll-table
+      class="table"
+      [dataSource]="(enrollments | async) || []"
+      [isAdmin]="!(isAdmin$ | async)"
+      (deleteEnrollment)="onDeleteEnrollment($event)"
+      (editEnrollment)="onEditEnrollment($event)">
+    </app-enroll-table>
+    </ng-template>
+  </div>
+
+</div>

@@ -7,11 +7,10 @@ import { Router } from "@angular/router";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Store } from "@ngrx/store";
 import { AuthActions } from "../store/auth/auth.actions";
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  // private _authUser$ = new BehaviorSubject<User | null>(null);
-  // public authUser$ = this._authUser$.asObservable();
 
   constructor(
     private notifier: NotifierService,
@@ -22,7 +21,7 @@ export class AuthService {
 
 
   isAuthenticated(): Observable<boolean> {
-    return this.httpClient.get<User[]>('http://localhost:3000/users', {
+    return this.httpClient.get<User[]>(environment.baseApiUrl +'/users', {
       params: {
         token: localStorage.getItem('token') || 'invalido'
       }
@@ -39,7 +38,7 @@ export class AuthService {
   }
 
   login(payload: LoginPayload): void {
-    this.httpClient.get<User[]>('http://localhost:3000/users', {
+    this.httpClient.get<User[]>(environment.baseApiUrl +'/users', {
       params: {
         email: payload.email || '',
         password: payload.password || ''
@@ -48,13 +47,11 @@ export class AuthService {
       next: (response) => {
         if(response.length){
           const authUser = response[0];
-          // this._authUser$.next(response[0]);
           this.store.dispatch(AuthActions.setAuthUser({ payload: authUser }))
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/home/']);
           localStorage.setItem('token', authUser.token)
         }else{
           this.notifier.showError('Dato no válido','Email o contrasena invalida');
-          // this._authUser$.next(null);
           this.store.dispatch(AuthActions.setAuthUser({ payload: null }))
         }
       },
@@ -65,7 +62,6 @@ export class AuthService {
           }
           this.notifier.showError('Error','Ha ocurrido un error');
         }
-        // this._authUser$.next(null);
       }
     })
   }

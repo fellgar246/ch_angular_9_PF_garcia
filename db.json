@@ -9,7 +9,7 @@
       "id": 1,
       "password": "1234",
       "token": "ddkfsdopkodpskps",
-      "role": "usuario"
+      "role": "administrador"
     },
     {
       "id": 2,
@@ -71,6 +71,28 @@
       "id": 3,
       "name": "Bases de Datos",
       "description": "lorem ipsum"
+    }
+  ],
+  "enrollments": [
+    {
+      "courseId": 3,
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "courseId": 1
+    },
+    {
+      "courseId": 3,
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "courseId": 4,
+      "userId": 3,
+      "id": 4
     }
   ]
 }
