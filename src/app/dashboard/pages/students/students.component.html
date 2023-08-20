@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div>
+    <h1 appTitles>Alumnos</h1>
+    <p> Los siguientes son tus alumnos actuales </p>
+  </div>
+
+  <div class="sub-container">
+    <div class="button-container">
+      <button [disabled]="!(isAdmin$ | async)" (click)="onCreateStudents()" mat-flat-button color="primary" type="button">
+        <mat-icon>add</mat-icon>
+        Agregar Alumno
+      </button>
+    </div>
+
+    <div *ngIf="isLoading$ | async; else notLoadingTemplate">Está cargando</div>
+
+    <ng-template #notLoadingTemplate>
+      <app-students-table
+        class="table"
+        [dataSource]="(students | async) || []"
+        [isAdmin]="!(isAdmin$ | async)"
+        (deleteStudent)="onDeleteStudent($event)"
+        (editStudent)="onEditStudent($event)">
+      </app-students-table>
+    </ng-template>
+  </div>
+
+</div>

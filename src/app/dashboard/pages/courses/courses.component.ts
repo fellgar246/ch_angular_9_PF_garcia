@@ -4,7 +4,7 @@ import { CourseFormDialogComponent } from './components/course-form-dialog/cours
 import { Course } from './models';
 import { CourseService } from './course.service';
 import { NotifierService } from '../../../core/services/notifier.service';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectIsAdmin } from 'src/app/store/auth/auth.selectors';
 
@@ -41,7 +41,6 @@ export class CoursesComponent {
           if(value){
             this.courseService.createCourse(value);
             this.notifier.showSuccess('Cursos cargados', 'Los cursos se cargaron correctamente');
-            console.log('Recibimos el valor',value);
           }else {
             console.log('No recibimos nada');
           }

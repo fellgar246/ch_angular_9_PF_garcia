@@ -19,7 +19,4 @@ export class EnrollTableComponent {
   @Output()
   deleteEnrollment = new EventEmitter<Enroll>();
 
-  @Output()
-  editEnrollment = new EventEmitter<Enroll>();
-
 }

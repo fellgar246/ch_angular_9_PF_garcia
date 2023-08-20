@@ -37,7 +37,6 @@ export class UsersComponent {
           if(value){
             this.userService.createUser(value);
             this.notifier.showSuccess('Usuarios cargados', 'Los usuarios se cargaron correctamente');
-            console.log('Recibimos el valor',value);
           }else {
             console.log('No recibimos nada');
           }

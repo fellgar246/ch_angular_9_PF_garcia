@@ -12,12 +12,12 @@ export class CourseFormDialogComponent {
 
   editingCourse?: Course;
 
-  nameCourseControl = new FormControl<String | null>(null, [Validators.required, Validators.min(10), Validators.max(100)]);
-  categoryControl = new FormControl<number | null>(null, [Validators.required]);
+  nameCourseControl = new FormControl<string | null>(null, [Validators.required, Validators.minLength(2) , Validators.maxLength(50)]);
+  descriptionControl = new FormControl<string | null>(null, [Validators.required, Validators.minLength(5) , Validators.maxLength(50)]);
 
   courseForm = new FormGroup({
     nameCourse: this.nameCourseControl,
-    category: this.categoryControl,
+    description: this.descriptionControl,
   });
 
 
@@ -29,7 +29,7 @@ export class CourseFormDialogComponent {
     if(this.data){
       this.editingCourse = this.data;
       this.nameCourseControl.setValue(this.data.nameCourse);
-      this.categoryControl.setValue(this.data.category);
+      this.descriptionControl.setValue(this.data.description);
     }
   }
 

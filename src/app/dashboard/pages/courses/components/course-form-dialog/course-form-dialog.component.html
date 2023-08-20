@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>
   {{
     editingCourse
-      ? "Editando a" + editingCourse.nameCourse
+      ? "Editando a " + editingCourse.nameCourse
       : "Creando Curso"
   }}
 </h1>
@@ -16,13 +16,9 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Tipo de Curso</mat-label>
-        <mat-select formControlName="typeCourse">
-          <mat-option value="Frontend">Frontend</mat-option>
-          <mat-option value="Backend">Backend</mat-option>
-          <mat-option value="Bases de datos">Bases de Datos</mat-option>
-        </mat-select>
-        <mat-error *ngFor="let error of categoryControl.errors | keyvalue">
+        <mat-label>Descripción</mat-label>
+        <input formControlName="description" matInput type="text" name="description" />
+        <mat-error *ngFor="let error of descriptionControl.errors | keyvalue">
           {{ error | controlErrorMessage }}
         </mat-error>
       </mat-form-field>

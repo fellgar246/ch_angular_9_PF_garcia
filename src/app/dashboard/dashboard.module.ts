@@ -11,7 +11,6 @@ import { CoursesModule } from './pages/courses/courses.module';
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { CategoriesModule } from './pages/categories/categories.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { CategoriesModule } from './pages/categories/categories.module';
     SharedModule,
     UsersModule,
     CoursesModule,
-    CategoriesModule,
     DashboardRoutingModule
   ],
   exports: [

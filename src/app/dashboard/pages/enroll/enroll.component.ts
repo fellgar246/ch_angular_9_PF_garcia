@@ -49,7 +49,6 @@ export class EnrollComponent {
           if(value){
             this.enrollService.createEnrollment(value);
             this.notifier.showSuccess('Cursos cargados', 'Los datos se cargaron correctamente');
-            console.log('Recibimos el valor',value);
           }else {
             console.log('No recibimos nada');
           }
@@ -63,23 +62,5 @@ export class EnrollComponent {
       this.notifier.showSuccess('Curso eliminado', 'La inscripción se eliminó correctamente');
     }
   }
-
-  onEditEnrollment(courseToEdit: Enroll): void {
-    this.matDialog
-    .open(EnrollFormDialogComponent, {
-      data: courseToEdit,
-    })
-    .afterClosed()
-    .subscribe({
-      next: (courseUpdated) => {
-        if(courseUpdated){
-          this.enrollService.updateCourseById(courseToEdit.id,courseUpdated);
-          this.notifier.showSuccess('Curso actualizado', 'El curso se actualizó correctamente');
-        }
-      }
-    })
-  }
-
-
 
 }

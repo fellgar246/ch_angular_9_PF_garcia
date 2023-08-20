@@ -1,0 +1,37 @@
+.container{
+  display: flex;
+  column-gap: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.images-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container{
+  width: 300px;
+}
+
+.logo{
+  width:530px;
+  height:160px;
+  background-image: url('https://res.cloudinary.com/dvvqbwhcc/image/upload/v1689533098/ANGULAR_PROJECT/StudioLogo_hhdiwd.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.image{
+  width:580px;
+  height:370px;
+  background-image: url('https://res.cloudinary.com/dvvqbwhcc/image/upload/v1692416224/ANGULAR_PROJECT/imagen_main_pdsyth.png');
+  background-size:100% 100%;
+  background-position:center;
+  background-repeat:no-repeat;
+}

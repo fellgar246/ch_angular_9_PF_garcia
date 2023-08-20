@@ -34,10 +34,6 @@ export class EnrollService {
     })
   }
 
-  getEnrollments(): Subject<Enroll[]> {
-    return this._enroll$
-  }
-
   createEnrollment(enrollment: CreateEnrollData): void {
     this.httpClient.post<Enroll>(environment.baseApiUrl + '/enrollments', {...enrollment })
       .pipe(
@@ -53,12 +49,6 @@ export class EnrollService {
         next: (arrayActualizado) => {
           this._enroll$.next(arrayActualizado);
         }
-    })
-  }
-
-  updateCourseById(id: Number, enrollActualizado: UpdateEnrollData): void {
-    this.httpClient.put<Enroll>(environment.baseApiUrl + `/enrollments/${id}`, enrollActualizado).subscribe({
-      next: ()=> this.loadEnrollments(),
     })
   }
 

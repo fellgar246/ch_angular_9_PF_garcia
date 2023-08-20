@@ -82,7 +82,7 @@ export class UserService {
 
 
   deleteUserById(id: Number): void {
-    this.httpClient.delete(environment.baseApiUrl + `users/${id}`)
+    this.httpClient.delete(environment.baseApiUrl + `/users/${id}`)
       .pipe(
         mergeMap(
           (responseUserDeleted) => this.users$.pipe(

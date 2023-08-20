@@ -37,40 +37,93 @@
   "courses": [
     {
       "nameCourse": "Angular",
-      "category": 1,
+      "description": "descripción",
       "id": 1
     },
     {
       "id": 2,
       "nameCourse": "React",
-      "category": 1
+      "description": "descripción"
     },
     {
       "id": 3,
       "nameCourse": "Mongo",
-      "category": 2
+      "description": "descripción"
     },
     {
       "id": 4,
       "nameCourse": "SQL",
-      "category": 3
-    }
-  ],
-  "categories": [
-    {
-      "name": "Frontend",
-      "description": "lorem ipsum",
-      "id": 1
+      "description": "descripción"
     },
     {
+      "nameCourse": "Go",
+      "description": "Curso básico de programación con Go",
+      "id": 5
+    }
+  ],
+  "students": [
+    {
       "id": 2,
-      "name": "Backend",
-      "description": "lorem ipsum"
+      "name": "María",
+      "lastName": "García",
+      "email": "mgarcia@mail.com",
+      "age": 20
     },
     {
       "id": 3,
-      "name": "Bases de Datos",
-      "description": "lorem ipsum"
+      "name": "Carlos",
+      "lastName": "López",
+      "email": "clopez@mail.com",
+      "age": 22
+    },
+    {
+      "id": 4,
+      "name": "Laura",
+      "lastName": "Martínez",
+      "email": "lmartinez@mail.com",
+      "age": 19
+    },
+    {
+      "id": 5,
+      "name": "Javier",
+      "lastName": "Hernández",
+      "email": "jhernandez@mail.com",
+      "age": 21
+    },
+    {
+      "id": 6,
+      "name": "Ana",
+      "lastName": "Pérez",
+      "email": "aperez@mail.com",
+      "age": 18
+    },
+    {
+      "id": 7,
+      "name": "Diego",
+      "lastName": "Rodríguez",
+      "email": "drodriguez@mail.com",
+      "age": 23
+    },
+    {
+      "id": 8,
+      "name": "Isabel",
+      "lastName": "Díaz",
+      "email": "idiaz@mail.com",
+      "age": 20
+    },
+    {
+      "id": 9,
+      "name": "Manuel",
+      "lastName": "Gómez",
+      "email": "mgomez@mail.com",
+      "age": 19
+    },
+    {
+      "name": "Lucía",
+      "lastName": "Fernández",
+      "email": "lfernandez@mail.com",
+      "age": 22,
+      "id": 10
     }
   ],
   "enrollments": [
@@ -93,6 +146,11 @@
       "courseId": 4,
       "userId": 3,
       "id": 4
+    },
+    {
+      "courseId": 2,
+      "userId": 1,
+      "id": 5
     }
   ]
 }
