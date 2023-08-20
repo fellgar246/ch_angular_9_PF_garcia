@@ -8,13 +8,13 @@
     <td mat-cell *matCellDef="let enroll"> {{enroll.id}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="user">
-    <th mat-header-cell *matHeaderCellDef> Curso </th>
-    <td mat-cell *matCellDef="let enroll"> {{ !!enroll.user ? enroll.user.name + ' ' + enroll.user.lastName : '-' }} </td>
+  <ng-container matColumnDef="student">
+    <th mat-header-cell *matHeaderCellDef> Alumno </th>
+    <td mat-cell *matCellDef="let enroll"> {{ !!enroll.student ? enroll.student.name + ' ' + enroll.student.lastName : '-' }} </td>
   </ng-container>
 
   <ng-container matColumnDef="course">
-    <th mat-header-cell *matHeaderCellDef> Alumno </th>
+    <th mat-header-cell *matHeaderCellDef> Curso </th>
     <td mat-cell *matCellDef="let enroll"> {{!!enroll.course ? enroll.course.nameCourse : '-'}}</td>
   </ng-container>
 

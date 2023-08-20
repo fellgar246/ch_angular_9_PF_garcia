@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { StudentsComponent } from "./students.component";
-import { StudentDetailComponent } from "./pages/user-detail/student-detail.component";
+import { StudentDetailComponent } from "./pages/student-detail/student-detail.component";
 
 @NgModule({
   declarations: [],
@@ -14,7 +14,7 @@ import { StudentDetailComponent } from "./pages/user-detail/student-detail.compo
         component: StudentsComponent,
       },
       {
-        path: 'users/:id',
+        path: ':id',
         component: StudentDetailComponent,
       }
     ])

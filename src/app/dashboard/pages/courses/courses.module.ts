@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { CourseFormDialogComponent } from './components/course-form-dialog/course-form-dialog.component';
 import { CoursesTableComponent } from './components/courses-table/courses-table.component';
 import { CoursesRoutingModule } from './courses-routing.module';
+import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
     CourseFormDialogComponent,
-    CoursesTableComponent
+    CoursesTableComponent,
+    CourseDetailComponent
   ],
   imports: [
     CommonModule,

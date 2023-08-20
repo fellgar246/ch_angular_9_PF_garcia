@@ -4,14 +4,14 @@ import { Student } from '../../models';
 import { NotifierService } from 'src/app/core/services/notifier.service';
 import { StudentService } from '../../student.service';
 
+
 @Component({
   selector: 'app-student-detail',
   templateUrl: './student-detail.component.html',
-  styles: [
-  ]
+  styleUrls: ['./student-detail.component.scss']
 })
 export class StudentDetailComponent {
-  public student: Student | null = null;
+  public student: Student | undefined;
   public studentId?: number;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,7 +19,6 @@ export class StudentDetailComponent {
     private notification: NotifierService,
     private studentService: StudentService
     ) {
-    console.log(this.activatedRoute.snapshot.params['id']);
     if(!Number(this.activatedRoute.snapshot.params['id'])){
       this.router.navigate(['dashboard', 'students']);
       this.notification.showError('Error',`El id ${this.activatedRoute.snapshot.params['id']}  no es valido`)
@@ -32,7 +31,11 @@ export class StudentDetailComponent {
   loadStudent(): void {
     if(this.studentId){
       this.studentService.getStudentById(this.studentId).subscribe({
-        next: (user) => console.log(user)
+        next: (student) => {
+          console.log(student);
+          this.student = student
+
+        }
       })
     }
   }

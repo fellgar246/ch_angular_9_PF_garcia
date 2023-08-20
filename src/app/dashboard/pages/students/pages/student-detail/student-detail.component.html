@@ -1,0 +1,19 @@
+<button class="back-button" routerLink=".." mat-icon-button>
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+<div class="container-info">
+  <mat-card>
+    <mat-card-content>
+      <h1>Detalle</h1>
+      <div class="info">
+        <p>Id: <span>{{ student?.id }}</span></p>
+        <p>Nombre: <span>{{ student?.name }}</span></p>
+        <p>Apellido: <span>{{ student?.lastName }}</span></p>
+        <p>Email: <span>{{ student?.email }}</span></p>
+        <p>Edad: <span>{{ student?.age }}</span></p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

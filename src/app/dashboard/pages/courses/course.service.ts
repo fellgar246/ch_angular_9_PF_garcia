@@ -38,8 +38,11 @@ export class CourseService {
     return this._course$
   }
 
-  getCoursesByCategory(categoryId: number): Observable<Course[]> {
-    return this.httpClient.get<Course[]>(environment.baseApiUrl + `/courses?category=${categoryId}`)
+  getCourseById(id: number): Observable<Course | undefined> {
+    return this.course$.pipe(
+      map((courses) => courses.find((course) => course.id === id)),
+      take(1)
+    )
   }
 
   createCourse(course: CreateCourseData): void {

@@ -8,7 +8,7 @@ import { Enroll } from '../../models';
   styleUrls: ['./enroll-table.component.scss']
 })
 export class EnrollTableComponent {
-  displayedColumns: string[] = ['id', 'course','user','actions'];
+  displayedColumns: string[] = ['id', 'course','student','actions'];
 
   @Input()
   dataSource: Enroll[] = [];

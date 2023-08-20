@@ -7,6 +7,6 @@ export const selectEnrollState = createFeatureSelector<fromEnroll.State>(
 
 export const selectErollments = createSelector(selectEnrollState, (state) => state.data)
 
-export const selectUserOptions = createSelector(selectEnrollState, (state) => state.userOptions)
+export const selectStudentOptions = createSelector(selectEnrollState, (state) => state.studentOptions)
 
 export const selectCourseOptions = createSelector(selectEnrollState, (state) => state.courseOptions)

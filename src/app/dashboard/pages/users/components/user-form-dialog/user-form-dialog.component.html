@@ -30,24 +30,6 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Curso</mat-label>
-        <mat-select formControlName="course">
-          <mat-option value="Angular">Angular</mat-option>
-          <mat-option value="React">React</mat-option>
-          <mat-option value="React">WordPress</mat-option>
-        </mat-select>
-        <mat-error *ngFor="let error of courseControl.errors | keyvalue">
-          {{ error | controlErrorMessage }}
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Edad</mat-label>
-        <input formControlName="age" matInput type="number" name="age" />
-        <mat-error *ngFor="let error of ageControl.errors | keyvalue">
-          {{ error | controlErrorMessage }}
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
         <mat-label>Rol</mat-label>
         <mat-select formControlName="role">
           <mat-option value="administrador">Administrador</mat-option>

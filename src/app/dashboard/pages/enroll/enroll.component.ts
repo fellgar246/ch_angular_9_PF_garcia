@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EnrollFormDialogComponent } from './components/course-form-dialog/enroll-form-dialog.component';
-import { Enroll, EnrollWithUserAndCourse } from './models';
+import { EnrollFormDialogComponent } from './components/enroll-form-dialog/enroll-form-dialog.component';
+import { Enroll, EnrollWithStudentAndCourse } from './models';
 import { EnrollService } from './enroll.service';
 import { NotifierService } from '../../../core/services/notifier.service';
 import { Observable } from 'rxjs';
@@ -17,7 +17,7 @@ import { selectErollments } from './store/enroll.selectors';
 })
 export class EnrollComponent {
   // public enrollments: Observable<Enroll[]>;
-  public enrollments: Observable<EnrollWithUserAndCourse[]>;
+  public enrollments: Observable<EnrollWithStudentAndCourse[]>;
   public isLoading$: Observable<boolean>;
   public isAdmin$: Observable<boolean>;
 
@@ -29,7 +29,6 @@ export class EnrollComponent {
     ) {
       this.enrollService.loadEnrollments();
       this.isLoading$ = this.enrollService.isLoading$;
-      // this.enrollments = this.enrollService.getEnrollments();
       this.enrollments = this.store.select(selectErollments)
       this.isAdmin$ = this.store.select(selectIsAdmin);
     }
@@ -48,7 +47,7 @@ export class EnrollComponent {
         next: (value) => {
           if(value){
             this.enrollService.createEnrollment(value);
-            this.notifier.showSuccess('Cursos cargados', 'Los datos se cargaron correctamente');
+            this.notifier.showSuccess('Inscripciones Cargadas', 'Los datos se cargaron correctamente');
           }else {
             console.log('No recibimos nada');
           }
@@ -57,9 +56,9 @@ export class EnrollComponent {
   }
 
   onDeleteEnrollment(enrollToDelete: Enroll): void {
-    if(confirm(`¿Está seguro de eliminar la inscripción del usuario ${enrollToDelete.userId}?`)){
+    if(confirm(`¿Está seguro de eliminar la inscripción del estudiante ${enrollToDelete.studentId}?`)){
       this.enrollService.deleteCourseById(enrollToDelete.id);
-      this.notifier.showSuccess('Curso eliminado', 'La inscripción se eliminó correctamente');
+      this.notifier.showSuccess('Inscripción Eliminada', 'La inscripción se eliminó correctamente');
     }
   }
 

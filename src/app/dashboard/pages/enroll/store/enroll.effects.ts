@@ -4,11 +4,11 @@ import { catchError, map, concatMap, take } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import { EnrollActions } from './enroll.actions';
 import { HttpClient } from '@angular/common/http';
-import { CreateEnrollPayload, Enroll, EnrollWithUserAndCourse } from '../models';
+import { CreateEnrollPayload, Enroll, EnrollWithStudentAndCourse } from '../models';
 import { environment } from 'src/environments/environment';
-import { User } from '../../users/models';
 import { Course } from '../../courses/models';
 import { Store } from '@ngrx/store';
+import { Student } from '../../students/models';
 
 
 @Injectable()
@@ -27,14 +27,14 @@ export class EnrollEffects {
     );
   });
 
-  loadUserOptions$ = createEffect(() => {
+  loadStudentOptions$ = createEffect(() => {
     return this.actions$.pipe(
 
-      ofType(EnrollActions.loadUserOptions),
+      ofType(EnrollActions.loadStudentOptions),
       concatMap(() =>
-        this.getUserOptions().pipe(
-          map(data => EnrollActions.loadUserOptionsSuccess({ data })),
-          catchError(error => of(EnrollActions.loadUserOptionsFailure({ error }))))
+        this.getStudentOptions().pipe(
+          map(data => EnrollActions.loadStudentOptionsSuccess({ data })),
+          catchError(error => of(EnrollActions.loadStudentOptionsFailure({ error }))))
       )
     );
   });
@@ -73,12 +73,12 @@ export class EnrollEffects {
 
   constructor(private actions$: Actions, private httpClient: HttpClient, private store: Store) {}
 
-  private getEnrollFromDB(): Observable<EnrollWithUserAndCourse[]> {
-    return this.httpClient.get<EnrollWithUserAndCourse[]>(environment.baseApiUrl + '/enrollments?_expand=user&_expand=course')
+  private getEnrollFromDB(): Observable<EnrollWithStudentAndCourse[]> {
+    return this.httpClient.get<EnrollWithStudentAndCourse[]>(environment.baseApiUrl + '/enrollments?_expand=student&_expand=course')
   }
 
-  private getUserOptions(): Observable<User[]>{
-    return this.httpClient.get<User[]>(environment.baseApiUrl + '/users')
+  private getStudentOptions(): Observable<Student[]>{
+    return this.httpClient.get<Student[]>(environment.baseApiUrl + '/students')
   }
 
   private getCourseOptions(): Observable<Course[]>{

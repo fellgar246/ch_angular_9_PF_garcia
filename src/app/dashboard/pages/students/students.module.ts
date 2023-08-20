@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { StudentDetailComponent } from './pages/user-detail/student-detail.component';
+import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
 import { RouterModule } from '@angular/router';
 import { StudentsRoutingModule } from './students-routing.module';
 import { StudentFormDialogComponent } from './components/student-form-dialog/student-form-dialog.component';

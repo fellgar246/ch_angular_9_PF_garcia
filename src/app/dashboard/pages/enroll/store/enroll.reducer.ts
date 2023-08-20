@@ -1,14 +1,15 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { EnrollActions } from './enroll.actions';
-import { EnrollWithUserAndCourse } from '../models';
+import { EnrollWithStudentAndCourse } from '../models';
 import { Course } from '../../courses/models';
-import { User } from '../../users/models';
+import { Student } from '../../students/models';
+
 
 export const enrollFeatureKey = 'enroll';
 
 export interface State {
-  data: EnrollWithUserAndCourse[];
-  userOptions: User[];
+  data: EnrollWithStudentAndCourse[];
+  studentOptions: Student[];
   courseOptions: Course[];
   loading: boolean;
   error: unknown;
@@ -16,7 +17,7 @@ export interface State {
 
 export const initialState: State = {
   data: [],
-  userOptions: [],
+  studentOptions: [],
   courseOptions: [],
   loading: false,
   error: null
@@ -48,11 +49,11 @@ export const reducer = createReducer(
   }),
 
   //Load User options
-  on(EnrollActions.loadUserOptions, (state) => state),
-  on(EnrollActions.loadUserOptionsSuccess,(state, action) => {
+  on(EnrollActions.loadStudentOptions, (state) => state),
+  on(EnrollActions.loadStudentOptionsSuccess,(state, action) => {
     return {
       ...state,
-      userOptions: action.data
+      studentOptions: action.data
     }
   }),
 

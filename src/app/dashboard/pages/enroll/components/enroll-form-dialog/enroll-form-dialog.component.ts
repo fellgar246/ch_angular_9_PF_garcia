@@ -5,9 +5,9 @@ import { Enroll } from '../../models';
 import { Store } from '@ngrx/store';
 import { EnrollActions } from '../../store/enroll.actions';
 import { Observable } from 'rxjs';
-import { selectUserOptions, selectCourseOptions } from '../../store/enroll.selectors';
-import { User } from '../../../users/models';
+import { selectStudentOptions, selectCourseOptions } from '../../store/enroll.selectors';
 import { Course } from '../../../courses/models';
+import { Student } from '../../../students/models';
 
 @Component({
   selector: 'app-enroll-form-dialog',
@@ -16,17 +16,17 @@ import { Course } from '../../../courses/models';
 })
 export class EnrollFormDialogComponent {
 
-  userOptions$: Observable<User[]>;
+  studentOptions$: Observable<Student[]>;
   courseOptions$: Observable<Course[]>;
 
   editingEnrollment?: Enroll;
 
   courseIdControl = new FormControl<number | null>(null, [Validators.required]);
-  userIdControl = new FormControl<number | null>(null, [Validators.required]);
+  studentIdControl = new FormControl<number | null>(null, [Validators.required]);
 
   enrollForm = new FormGroup({
     courseId: this.courseIdControl,
-    userId: this.userIdControl,
+    studentId: this.studentIdControl,
   });
 
 
@@ -35,18 +35,18 @@ export class EnrollFormDialogComponent {
     private store: Store,
     @Inject(MAT_DIALOG_DATA) public data?: Enroll,
   ) {
-    this.userOptions$ = this.store.select(selectUserOptions)
+    this.studentOptions$ = this.store.select(selectStudentOptions)
     this.courseOptions$ = this.store.select(selectCourseOptions)
     if(this.data){
       this.editingEnrollment = this.data;
       this.courseIdControl.setValue(this.data.courseId);
-      this.userIdControl.setValue(this.data.userId);
+      this.studentIdControl.setValue(this.data.studentId);
     }
   }
 
   ngOnInit(): void {
     this.store.dispatch(EnrollActions.loadCourseOptions());
-    this.store.dispatch(EnrollActions.loadUserOptions())
+    this.store.dispatch(EnrollActions.loadStudentOptions())
   }
 
   onSubmit(): void {
