@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { UsersComponent } from "./users.component";
-import { UserDetailComponent } from "./pages/user-detail/user-detail.component";
 
 @NgModule({
   declarations: [],
@@ -12,10 +11,6 @@ import { UserDetailComponent } from "./pages/user-detail/user-detail.component";
       {
         path: '',
         component: UsersComponent,
-      },
-      {
-        path: 'users/:id',
-        component: UserDetailComponent,
       }
     ])
   ],

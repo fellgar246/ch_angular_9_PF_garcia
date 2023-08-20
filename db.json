@@ -2,15 +2,24 @@
   "users": [
     {
       "name": "User",
-      "lastName": "Prueba",
-      "email": "prueba@mail.com",
+      "lastName": "Admin",
+      "email": "admin@mail.com",
       "id": 1,
-      "password": "1234",
+      "password": "1234admin",
       "token": "ddkfsdopkodpskps",
       "role": "administrador"
     },
     {
       "id": 2,
+      "name": "User",
+      "lastName": "Test",
+      "email": "test@email.com",
+      "password": "1234",
+      "token": "ddkfsdopkodpskpt",
+      "role": "usuario"
+    },
+    {
+      "id": 3,
       "name": "Maria",
       "lastName": "Gomez",
       "email": "maria@email.com",
@@ -19,7 +28,7 @@
       "role": "usuario"
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Juan",
       "lastName": "Perez",
       "email": "juan@mail.com",
@@ -150,6 +159,21 @@
       "courseId": 3,
       "studentId": 3,
       "id": 6
+    },
+    {
+      "courseId": 2,
+      "studentId": 2,
+      "id": 7
+    },
+    {
+      "courseId": 3,
+      "studentId": 2,
+      "id": 8
+    },
+    {
+      "courseId": 2,
+      "studentId": 4,
+      "id": 9
     }
   ]
 }

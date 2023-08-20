@@ -1,5 +1,16 @@
-<button routerLink=".." mat-icon-button>
+<button class="back-button" routerLink=".." mat-icon-button>
   <mat-icon>arrow_back</mat-icon>
 </button>
 
-<p>Usuario</p>
+<div class="container-info">
+  <mat-card>
+    <mat-card-content>
+      <h1>Detalle</h1>
+      <div class="info">
+        <p>Id: <span>{{ course?.id }}</span></p>
+        <p>Curso: <span>{{ course?.nameCourse }}</span></p>
+        <p>Descripción: <span>{{ course?.description }}</span></p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

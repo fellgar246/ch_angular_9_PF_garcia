@@ -21,7 +21,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Acciones </th>
     <td mat-cell *matCellDef="let enroll">
-      <button [disabled]="isAdmin" (click)="deleteEnrollment.emit(enroll)" mat-icon-button color="warn">
+      <button (click)="deleteEnrollment.emit(enroll)" mat-icon-button color="warn">
         <mat-icon>delete</mat-icon>
       </button>
     </td>

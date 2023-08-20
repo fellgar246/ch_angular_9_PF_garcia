@@ -68,6 +68,7 @@ export class AuthService {
 
   public logout(): void {
     this.store.dispatch(AuthActions.setAuthUser({ payload: null }))
+    localStorage.removeItem('token')
   }
 
 }

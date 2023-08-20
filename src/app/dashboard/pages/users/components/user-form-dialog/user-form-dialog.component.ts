@@ -12,16 +12,18 @@ export class UserFormDialogComponent {
 
   editingUser?: User;
 
-  nameControl = new FormControl<String | null>(null, [Validators.required, Validators.minLength(2)]);
-  lastNameControl = new FormControl<String | null>(null, [Validators.required]);
-  emailControl = new FormControl<String | null>(null, [Validators.required, Validators.email]);
-  roleControl = new FormControl<String | null>(null, [Validators.required]);
+  nameControl = new FormControl<string | null>(null, [Validators.required, Validators.minLength(2)]);
+  lastNameControl = new FormControl<string | null>(null, [Validators.required]);
+  emailControl = new FormControl<string | null>(null, [Validators.required, Validators.email]);
+  roleControl = new FormControl<string | null>(null, [Validators.required]);
+  passwordControl = new FormControl<string | null>(null, [Validators.required]);
 
   userForm = new FormGroup({
     name: this.nameControl,
     lastName: this.lastNameControl,
     email: this.emailControl,
     role: this.roleControl,
+    password: this.passwordControl
   });
 
 
@@ -36,6 +38,7 @@ export class UserFormDialogComponent {
       this.lastNameControl.setValue(this.data.lastName);
       this.emailControl.setValue(this.data.email);
       this.roleControl.setValue(this.data.role);
+      this.passwordControl.setValue(this.data.password)
     }
   }
 

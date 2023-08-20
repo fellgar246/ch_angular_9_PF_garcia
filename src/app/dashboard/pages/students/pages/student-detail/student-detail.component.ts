@@ -32,9 +32,7 @@ export class StudentDetailComponent {
     if(this.studentId){
       this.studentService.getStudentById(this.studentId).subscribe({
         next: (student) => {
-          console.log(student);
           this.student = student
-
         }
       })
     }

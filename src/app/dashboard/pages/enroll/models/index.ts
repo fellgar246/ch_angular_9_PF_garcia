@@ -24,7 +24,6 @@ export interface CreateEnrollData {
 }
 
 export interface UpdateEnrollData {
-  id: number;
   courseId: number;
   studentId: number;
 }

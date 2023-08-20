@@ -75,6 +75,7 @@ export class UserService {
   }
 
   updateUserById(id: Number, usuarioActualizado: UpdateUserData): void {
+    usuarioActualizado.token = generateRandomString(15)
     this.httpClient.put<User>(environment.baseApiUrl + `/users/${id}`, usuarioActualizado).subscribe({
       next: ()=> this.loadUsers(),
     })

@@ -16,7 +16,6 @@ import { selectErollments } from './store/enroll.selectors';
   styleUrls: ['./enroll.component.scss']
 })
 export class EnrollComponent {
-  // public enrollments: Observable<Enroll[]>;
   public enrollments: Observable<EnrollWithStudentAndCourse[]>;
   public isLoading$: Observable<boolean>;
   public isAdmin$: Observable<boolean>;
@@ -27,7 +26,6 @@ export class EnrollComponent {
     private notifier: NotifierService,
     private store: Store
     ) {
-      this.enrollService.loadEnrollments();
       this.isLoading$ = this.enrollService.isLoading$;
       this.enrollments = this.store.select(selectErollments)
       this.isAdmin$ = this.store.select(selectIsAdmin);
@@ -38,26 +36,15 @@ export class EnrollComponent {
   }
 
   onCreateEnrollment(): void {
-    this.matDialog
-      .open(EnrollFormDialogComponent, {
-        width: '400px',
-      })
-      .afterClosed()
-      .subscribe({
-        next: (value) => {
-          if(value){
-            this.enrollService.createEnrollment(value);
-            this.notifier.showSuccess('Inscripciones Cargadas', 'Los datos se cargaron correctamente');
-          }else {
-            console.log('No recibimos nada');
-          }
-        }
-      })
+    this.matDialog.open(EnrollFormDialogComponent),  {
+          width: '400px',
+        };
   }
 
   onDeleteEnrollment(enrollToDelete: Enroll): void {
     if(confirm(`¿Está seguro de eliminar la inscripción del estudiante ${enrollToDelete.studentId}?`)){
       this.enrollService.deleteCourseById(enrollToDelete.id);
+      this.store.dispatch(EnrollActions.loadEnrolls())
       this.notifier.showSuccess('Inscripción Eliminada', 'La inscripción se eliminó correctamente');
     }
   }

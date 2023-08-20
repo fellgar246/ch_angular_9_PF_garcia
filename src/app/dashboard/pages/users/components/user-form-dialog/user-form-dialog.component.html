@@ -36,6 +36,13 @@
           <mat-option value="usuario">Usuario</mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password" name="password" />
+        <mat-error *ngFor="let error of passwordControl.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
     </div>
   </form>
 </div>

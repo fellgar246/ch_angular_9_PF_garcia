@@ -7,11 +7,10 @@ import { CourseService } from '../../course.service';
 @Component({
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
-  styles: [
-  ]
+  styleUrls: ['./course-detail.component.scss']
 })
 export class CourseDetailComponent {
-  public course: Course | null = null;
+  public course: Course | undefined;
   public courseId?: number;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,7 +30,9 @@ export class CourseDetailComponent {
   loadUser(): void {
     if(this.courseId){
       this.courseService.getCourseById(this.courseId).subscribe({
-        next: (course) => console.log(course)
+        next: (course) => {
+          this.course = course
+        }
       })
     }
   }

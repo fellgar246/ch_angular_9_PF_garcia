@@ -21,4 +21,5 @@ export interface UpdateUserData {
   email?: string;
   password?: string;
   role?: string;
+  token?: string;
 }
